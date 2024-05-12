@@ -1,4 +1,5 @@
 import { builder } from "@builder.io/sdk";
+import Head from "next/head";
 import { RenderBuilderContent } from "../../components/builder";
 
 // Builder Public API Key set in .env file
@@ -26,6 +27,10 @@ export default async function Page(props: PageProps) {
 
   return (
     <>
+      <Head>
+        <title>{content?.data.title}</title>
+        <meta name="description" content={content?.data.description} />
+      </Head>
       {/* Render the Builder page */}
       <RenderBuilderContent content={content} model={builderModelName} />
     </>
