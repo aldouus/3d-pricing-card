@@ -26,10 +26,10 @@ const PricingCard = (props: PricingCardProps) => {
   return (
     <div className="grid md:grid-flow-col rounded-3xl overflow-clip outline outline-1 outline-zinc-400 shadow-lg max-w-[700px]">
       {!userSelect ?
-        <div onMouseUp={() => setUserSelect(true)} style={{ top: y - size / 2, left: x - size / 2 }} className="absolute h-[150px] aspect-square z-50 bg-transparent rounded-full cursor-grabbing" />
+        <div onMouseUp={() => setUserSelect(true)} style={{ top: y - size / 2, left: x - size / 2 }} className="absolute h-[150px] aspect-square z-40 bg-transparent rounded-full cursor-grabbing" />
         : null}
       <div onMouseDown={() => setUserSelect(false)} className={`relative bg-zinc-100 md:h-[300px] h-[300px] aspect-square ${selecableClassModel}`}>
-        <div className="absolute flex gap-3 bottom-5 right-5 z-10">
+        <div className="absolute flex gap-3 bottom-5 right-5 z-50">
           <button onClick={() => setPlay(!play)}>
             {!play ? <Icon variant="play" fill="fill-zinc-500" /> : <Icon variant="pause" fill="fill-zinc-500" />}
           </button>
