@@ -5,7 +5,7 @@ import { OrbitControls, useGLTF, OrthographicCamera } from "@react-three/drei";
 
 const Model = ({ play, path }) => {
 
-  const { nodes } = useGLTF('/models/banana.glb');
+  const { nodes } = useGLTF('../public/models/banana.glb');
 
   return (
     <Canvas className="bg-none">
