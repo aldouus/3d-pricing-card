@@ -1,12 +1,12 @@
 "use client";
 import { builder, Builder } from "@builder.io/react";
 
-import PricingCard from "./components/PricingCard";
+import PricingCardDebug from "./components/PricingCardDebug";
 
 builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY!);
 
-Builder.registerComponent(PricingCard, {
-  name: "PricingCard",
+Builder.registerComponent(PricingCardDebug, {
+  name: "PricingCardDebug",
   inputs: [
     {
       name: "title",
