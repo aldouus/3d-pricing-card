@@ -36,7 +36,7 @@ const PricingCard = (props: PricingCardProps) => {
 
   return (
     <div className="grid max-w-[700px] overflow-clip rounded-3xl shadow-lg outline outline-1 outline-zinc-400 md:grid-flow-col">
-      <div className="absolute top-3 left-3 flex gap-3">
+      <div className="absolute top-3 left-3 z-50 flex gap-3">
         <label htmlFor="debug">Debug Mode</label>
         <input onClick={() => setToggled(!toggled)} type="checkbox" name="debug" className="w-[20px] aspect-square outline-1" />
       </div>
