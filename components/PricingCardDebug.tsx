@@ -26,8 +26,12 @@ const PricingCard = (props: PricingCardProps) => {
     ? "cursor-grab"
     : "select-none cursor-grabbing";
 
-  let debugModeClass = toggled
+  let debugModeClassHover = toggled
     ? "outline-1 outline-red-500 bg-red-500"
+    : null
+
+  let debugModeClass = toggled
+    ? "outline outline-1 outline-red-500"
     : null
 
   return (
@@ -40,14 +44,14 @@ const PricingCard = (props: PricingCardProps) => {
         <div
           onMouseUp={() => setUserSelect(true)}
           style={{ top: y - size / 2, left: x - size / 2 }}
-          className={`absolute z-40 aspect-square h-[150px] cursor-grabbing rounded-full bg-transparent ${debugModeClass}`}
+          className={`absolute z-40 aspect-square h-[150px] cursor-grabbing rounded-full bg-transparent ${debugModeClassHover}`}
         />
       ) : null}
       <div
         onMouseDown={() => setUserSelect(false)}
-        className={`relative aspect-square h-[300px] bg-zinc-100 md:h-[300px] ${selecableClassModel}`}
+        className={`relative aspect-square h-[300px] bg-zinc-100 md:h-[300px] ${selecableClassModel} ${debugModeClass}`}
       >
-        <div className="absolute bottom-5 right-5 z-50 flex gap-3">
+        <div className={`absolute bottom-5 right-5 z-50 flex gap-3 ${debugModeClass}`}>
           <button onClick={() => setPlay(!play)}>
             {!play ? (
               <Icon variant="play" fill="fill-zinc-500" />
@@ -58,28 +62,28 @@ const PricingCard = (props: PricingCardProps) => {
         </div>
         <Model play={play} path={props.modelPath} />
       </div>
-      <div className="relative flex h-full w-[300px] flex-col justify-between bg-zinc-200 p-7 text-zinc-900 md:w-[400px]">
-        <div className="flex flex-col gap-3 md:gap-2">
-          <div className="flex flex-col items-start justify-between md:flex-row md:items-center">
-            <h3 className="text-4xl font-bold">{props.title}</h3>
-            <p className="pt-1 text-xs md:text-sm">
+      <div className={`relative flex h-full w-[300px] flex-col justify-between bg-zinc-200 p-7 text-zinc-900 md:w-[400px] ${debugModeClass}`}>
+        <div className={`flex flex-col gap-3 md:gap-2 ${debugModeClass}`}>
+          <div className={`flex flex-col items-start justify-between md:flex-row md:items-center ${debugModeClass}`}>
+            <h3 className={`text-4xl font-bold ${debugModeClass}`}>{props.title}</h3>
+            <p className={`pt-1 text-xs md:text-sm ${debugModeClass}`}>
               Art. {props.articleNumber}
             </p>
           </div>
           <Divider />
         </div>
-        <p className="py-3 md:py-0">{props.description}</p>
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <h4 className="text-2xl font-bold">
+        <p className={`py-3 md:py-0 ${debugModeClass}`}>{props.description}</p>
+        <div className={`flex items-center justify-between ${debugModeClass}`}>
+          <div className={`flex items-center gap-3 ${debugModeClass}`}>
+            <h4 className={`text-2xl font-bold ${debugModeClass}`}>
               {props.currencyPrefix}
               {props.price}
             </h4>
-            <p className="text-2xl">/</p>
+            <p className={`text-2xl ${debugModeClass}`}>/</p>
             <p>{props.unit}</p>
           </div>
-          <button className="flex h-[50px] w-[50px] items-center justify-center rounded-lg bg-zinc-900 md:w-[100px]">
-            <Icon variant="bag" fill="fill-white" />
+          <button className={`flex h-[50px] w-[50px] items-center justify-center rounded-lg bg-zinc-900 md:w-[100px] ${debugModeClass}`}>
+            <Icon variant="bag" fill={`fill-white ${debugModeClass}`} />
           </button>
         </div>
       </div>
